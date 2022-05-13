@@ -23,12 +23,12 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         server-id: my-app # Value of the distributionManagement/repository/id field of the pom.xml
-      
+        settings-path : bsneyder/mavenprueba # ubicación para el archivo settings.xml
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy 
+      run: mvn deploy -s bsneyder/mavenprueba/settings.xml 
       env:
         GITHUB_TOKEN: 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
