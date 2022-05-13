@@ -23,13 +23,14 @@ jobs:
 
   deploy:
     name: deploy to cluster
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@main
     - name: build and push to docker
       uses: docker/build-push-action@v1
       with:
-        username: bquintero56
+        username: bsneyder
         password: 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
         repository: ${{ github.repository }}
         tag_with_ref: true
