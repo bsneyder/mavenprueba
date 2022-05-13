@@ -4,17 +4,12 @@
 name: Maven Package
 
 on:
- push:
-   branches: [ main ]
-    
+  push:
+    branches: [ main ]
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -22,13 +17,28 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
-        server-id: my-app # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path : bsneyder/mavenprueba/settings.xml # ubicación para el archivo settings.xml
-
+        cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s bsneyder/mavenprueba/settings.xml 
-      env:
-        GITHUB_TOKEN: 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
+  deploy:
+    name: deploy to cluster
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@main
+    - name: build and push to docker
+      uses: docker/build-push-action@v1
+      with:
+        username: ${{ USERNAME }}
+        password: ${{ GITHUBTOKEN }}
+        repository: ${{ github.repository }}
+        tag_with_ref: true
+        tag_with_sha: true
+        tags: ${{ github.sha }}
+        
+        
+        
+       
+
+
+        
