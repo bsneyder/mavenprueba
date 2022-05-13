@@ -23,7 +23,7 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         server-id: my-app # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path : bsneyder/mavenprueba # ubicación para el archivo settings.xml
+        settings-path : bsneyder/mavenprueba/settings.xml # ubicación para el archivo settings.xml
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
