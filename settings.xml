@@ -17,7 +17,7 @@
         </repository>
         <repository>
           <id>my-app</id>
-          <url>https://maven.pkg.github.com/bsneyder/pruebama</url>
+          <url>https://maven.pkg.github.com/bsneyder/mavenprueba</url>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
@@ -29,8 +29,8 @@
   <servers>
     <server>
       <id>github</id>
-      <username>${ENV_USERNAME}</username>
-      <password>${ENV_TOKEN_GIT}</password>
+      <username>${USERNAME}</username>
+      <password>${TOKEN}</password>
     </server>
   </servers>
 </settings>
