@@ -17,7 +17,7 @@
         </repository>
         <repository>
           <id>my-app</id>
-          <url>https://maven.pkg.github.com/bsneyder/mavenprueba</url>
+          <url>https://github.com/bsneyder/mavenprueba</url>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
