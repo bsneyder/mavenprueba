@@ -28,7 +28,7 @@
 
   <servers>
     <server>
-      <id>github</id>
+      <id>my-app</id>
       <username>bsneyder</username>
       <password>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</password>
     </server>
