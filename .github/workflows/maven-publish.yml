@@ -30,7 +30,7 @@ jobs:
     - name: build and push to docker
       uses: docker/build-push-action@v1
       with:
-        username: ${{ secrets.USERNAME }}
+        username: ${{ secrets.USERNAMEDOCKER }}
         password: ${{ secrets.GITHUBTOKEN }}
         repository: ${{ github.repository }}
         tag_with_ref: true
