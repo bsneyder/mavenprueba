@@ -29,8 +29,8 @@
   <servers>
     <server>
       <id>my-app</id>
-      <username>bsneyder</username>
-      <password>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</password>
+      <username>${{ secrets.USERNAME }}</username>
+      <password>${{ secrets.GITHUBTOKEN }}</password>
     </server>
   </servers>
 </settings>
