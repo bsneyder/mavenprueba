@@ -1,4 +1,3 @@
-FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-ADD ${JAR_LIB_FILE} lib/
-ENTRYPOINT ["java","-jar","app.jar"]
+FROM nginx:1.19-alpine
+
+ADD index.html /usr/share/nginx/html
