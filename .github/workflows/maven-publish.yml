@@ -30,8 +30,8 @@ jobs:
     - name: build and push to docker
       uses: docker/build-push-action@v1
       with:
-        username: ${{ PASSWORD_DOCKER }}
-        password: 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
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.GITHUBTOKEN }}
         repository: ${{ github.repository }}
         tag_with_ref: true
         tag_with_sha: true
