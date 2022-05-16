@@ -1,3 +1,4 @@
-FROM nginx:1.19-alpine
-
-ADD README.md /usr/share/nginx/html
+FROM adoptopenjdk:11-jre-hotspot
+VOLUME /tmp
+ADD target/*.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
