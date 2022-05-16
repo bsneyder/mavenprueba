@@ -69,7 +69,7 @@ jobs:
       with:
         username: ${{ secrets.USERNAMEDOCKER }}
         password: ${{ secrets.PASSWORD_DOCKERHUB }}
-        repository: bquintero56/mavenprueba
+        repository: ${{ github.repository }}
         tag_with_ref: true
         tag_with_sha: true
         tags: ${{ github.sha }}
