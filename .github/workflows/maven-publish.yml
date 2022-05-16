@@ -45,18 +45,16 @@ jobs:
        ## run: mvn clean source:jar deploy -DuniqueVersion=false -Dmaven.source.useDefaultManifestFile=true -Dmaven.source.includePom=true -Dmaven.install.skip=true -DdeplyAtEnd=true -DaltDeploymentRepository='github::default::https://maven.pkg.github.com/jesusrh12/ffm-ne-back-jv-lib-commons'
         run: mvn source:jar deploy -DuniqueVersion=false -Dmaven.source.useDefaultManifestFile=true -Dmaven.source.includePom=true -DaltDeploymentRepository='github::default::https://maven.pkg.github.com/bsneyder/mavenprueba'
         
-      - name: deploy to registry
-      - uses: actions/checkout@main
-      - name: build and push to docker
-        uses: docker/build-push-action@v2
+
+      - name: Azure Container Registry Login
+        uses: Azure/docker-login@v1
         with:
-          username: ${{ secrets.USERNAMEDOCKER }}
-          password: ${{ secrets.PASSWORD_DOCKERHUB }}
-          repository: ${{ github.repository }}
-          tag_with_ref: true
-          tag_with_sha: true
-          tags: ${{ github.sha }}
-      
+    # Container registry username
+          username: ${{ secrets.AZURE_USERNAME }}
+    # Container registry password
+          password: ${{ secrets.AZURE_PASSWORD }}
+    # Container registry server url
+          login-server: ${{ secrets.AZURE_SERVER_REGISTRY }}
 
       
         
