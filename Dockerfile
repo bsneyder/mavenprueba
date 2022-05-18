@@ -1,4 +1,4 @@
 FROM adoptopenjdk:11-jre-hotspot
-VOLUME /tmp
-ADD target/*.jar app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+
+ADD src/main/java/com/mycompany/app/App.java /usr/share/nginx/html
+
